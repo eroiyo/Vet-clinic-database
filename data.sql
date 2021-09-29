@@ -36,7 +36,7 @@ VALUES ('Blossom', '1998-10-13', 17, true, 3);
 
 /*Owners Data*/
 
-INSERT INTO animals (full_name, age)
+INSERT INTO owners (full_name, age)
 VALUES ('Sam Smith', 3);
 
 INSERT INTO animals (full_name, age)
@@ -64,11 +64,38 @@ VALUES ('Digimon');
 
 /*Update Animals*/
 
-UPDATE animals SET species_id = 1 WHERE name LIKE '%mon';
-UPDATE animals SET species_id = 2 WHERE species_id IS NULL;
+UPDATE animals 
+SET animals.species_id = species_id
+FROM animals, species 
+WHERE animals.name LIKE '%mon' AND species.name = "Digimon";
 
-UPDATE animals SET owner_id = 1 WHERE name LIKE 'Agumon';
-UPDATE animals SET owner_id = 2 WHERE name IN ('Gabumon', 'Pikachu');
-UPDATE animals SET owner_id = 3 WHERE name IN ('Devimon', 'Plantmon');
-UPDATE animals SET owner_id = 4 WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
-UPDATE animals SET owner_id = 5 WHERE name IN ('Angemon', 'Boarmon');
+UPDATE animals 
+SET animals.species_id = species_id
+FROM animals, species 
+WHERE animals.name = NULL AND species.name = "Pokemon";
+
+
+UPDATE animals 
+SET animals.owner_id = owners.id
+FROM animals, owners 
+WHERE animals.name = 'Agumon' AND owners.name = "Sam Smith";
+
+UPDATE animals 
+SET animals.owner_id = owners.id
+FROM animals, owners 
+WHERE animals.name IN ('Gabumon', 'Pikachu') AND owners.name = "Jennifer Orwell";
+
+UPDATE animals 
+SET animals.owner_id = owners.id
+FROM animals, owners 
+WHERE animals.name IN ('Devimon', 'Plantmon'); AND owners.name = "Bob";
+
+UPDATE animals 
+SET animals.owner_id = owners.id
+FROM animals, owners 
+WHERE animals.name IN ('Charmander', 'Squirtle', 'Blossom') AND owners.name = "Melody Pond";
+
+UPDATE animals 
+SET animals.owner_id = owners.id
+FROM animals, owners 
+WHERE animals.name IN ('Angemon', 'Boarmon'); AND owners.name = "Dean Winchester";
