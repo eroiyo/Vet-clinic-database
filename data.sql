@@ -39,19 +39,19 @@ VALUES ('Blossom', '1998-10-13', 17, true, 3);
 INSERT INTO owners (full_name, age)
 VALUES ('Sam Smith', 3);
 
-INSERT INTO animals (full_name, age)
+INSERT INTO owners (full_name, age)
 VALUES ('Jennifer Orwell', 19);
 
-INSERT INTO animals (full_name, age)
+INSERT INTO owners (full_name, age)
 VALUES ('Bob', 45);
 
-INSERT INTO animals (full_name, age)
+INSERT INTO owners (full_name, age)
 VALUES ('Melody Pond', 77); 
 
-INSERT INTO animals (full_name, age)
+INSERT INTO owners (full_name, age)
 VALUES ('Dean Winchester', 14);
 
-INSERT INTO animals (full_name, age)
+INSERT INTO owners (full_name, age)
 VALUES ('Jodie Whittaker', 38);
 
 /*Species Data*/
