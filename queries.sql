@@ -172,7 +172,7 @@ FULL OUTER JOIN owners
 ON animals.owner_id = owners.id
 GROUP BY owners.id;
 
-/*---------------------------------------------------- Join Table ---------------------------------------------*/
+/*--------------------------------------------------- Join Table ---------------------------------------------*/
 
 
 /*-Who was the last animal seen by William Tatcher?-*/
