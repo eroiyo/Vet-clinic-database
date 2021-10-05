@@ -126,44 +126,44 @@ SELECT neutered, AVG(escape_attempts) FROM animals WHERE EXTRACT(year FROM date_
 /*What animals belong to Melody Pond?*/
 
 SELECT animals.name, owners.full_name FROM animals
-INNER JOIN owners
-ON owners.id = animals.owner_id
-AND owners.full_name = 'Melody Pond';
+    INNER JOIN owners
+    ON owners.id = animals.owner_id
+    AND owners.full_name = 'Melody Pond';
 
 /*List of all animals that are pokemon (their type is Pokemon).*/
 
 SELECT animals.name, species.name FROM animals
-INNER JOIN species
-ON species.id = animals.species_id
-AND species.name = 'Pokemon';
+    INNER JOIN species
+    ON species.id = animals.species_id
+    AND species.name = 'Pokemon';
 
 /*List all owners and their animals, remember to include those that don't own any animal.*/
 
 SELECT owners.full_name, animals.name FROM owners
-LEFT JOIN animals
-ON owners.id = animals.owner_id;
+    LEFT JOIN animals
+    ON owners.id = animals.owner_id;
 
 /*How many animals are there per species?*/
 
 SELECT species.name, COUNT(*) FROM animals
-FULL OUTER JOIN species
-ON species.id = animals.species_id
-GROUP BY species.id;
+    FULL OUTER JOIN species
+    ON species.id = animals.species_id
+    GROUP BY species.id;
 
 /*List all Digimon owned by Jennifer Orwell.*/
 
 SELECT animals.name, species.name FROM animals
-INNER JOIN owners ON owners.id = animals.owner_id
-INNER JOIN species ON species.id = animals.species_id
-WHERE owners.full_name = 'Jennifer Orwell'
-AND species.name = 'Digimon';
+    INNER JOIN owners ON owners.id = animals.owner_id
+    INNER JOIN species ON species.id = animals.species_id
+    WHERE owners.full_name = 'Jennifer Orwell'
+    AND species.name = 'Digimon';
 
 /*List all animals owned by Dean Winchester that haven't tried to escape*/
 
 SELECT animals.name, animals.escape_attempts FROM animals
-INNER JOIN owners ON owners.id = animals.owner_id
-WHERE owners.full_name = 'Dean Winchester'
-AND animals.escape_attempts = 0;
+    INNER JOIN owners ON owners.id = animals.owner_id
+    WHERE owners.full_name = 'Dean Winchester'
+    AND animals.escape_attempts = 0;
 
 /*Who owns the most animals?*/
 
@@ -236,3 +236,9 @@ INNER JOIN species ON species.id = animals.species_id
 WHERE vets.name = 'Maisy Smith'
 GROUP BY species.name
 ORDER BY species_count DESC LIMIT 1;
+
+/* Performace Audit testing querys */
+
+explain analyze SELECT COUNT(*) FROM visits where animals_id = 4;
+explain analyze SELECT * FROM visits where vets_id = 2;
+explain analyze SELECT * FROM owners where email = 'owner_18327@mail.com'; 
