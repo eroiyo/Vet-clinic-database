@@ -64,41 +64,9 @@ VALUES ('Digimon');
 
 /*Update Animals*/
 
-UPDATE animals 
-SET animals.species_id = species_id
-FROM animals, species 
-WHERE animals.name LIKE '%mon' AND species.name = "Digimon";  /*give all the animals that en in "mon" the Digimon species*/
+UPDATE animals SET species_id = 1 WHERE name LIKE '%mon'; /*give all the animals that en in "mon" the Digimon species*/
 
-UPDATE animals 
-SET animals.species_id = species_id
-FROM animals, species 
-WHERE animals.name = NULL AND species.name = "Pokemon"; /*Give the remaning ones the pokemon status*/
-
-
-UPDATE animals 
-SET animals.owner_id = owners.id
-FROM animals, owners 
-WHERE animals.name = 'Agumon' AND owners.name = "Sam Smith"; /*giving animals to their respective owners*/
-
-UPDATE animals 
-SET animals.owner_id = owners.id
-FROM animals, owners 
-WHERE animals.name IN ('Gabumon', 'Pikachu') AND owners.name = "Jennifer Orwell";
-
-UPDATE animals 
-SET animals.owner_id = owners.id
-FROM animals, owners 
-WHERE animals.name IN ('Devimon', 'Plantmon') AND owners.name = "Bob";
-
-UPDATE animals 
-SET animals.owner_id = owners.id
-FROM animals, owners 
-WHERE animals.name IN ('Charmander', 'Squirtle', 'Blossom') AND owners.name = "Melody Pond";
-
-UPDATE animals 
-SET animals.owner_id = owners.id
-FROM animals, owners 
-WHERE animals.name IN ('Angemon', 'Boarmon') AND owners.name = "Dean Winchester";
+UPDATE animals SET species_id = 2 WHERE species_id IS NULL; /*Give the remaning ones the pokemon status*/
 
 /*Vets Data*/
 
