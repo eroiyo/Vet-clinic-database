@@ -6,6 +6,8 @@
 
 ## Getting Started
 
+![image](https://user-images.githubusercontent.com/59938389/136052359-2e44bcb4-1605-4494-a8eb-868a1b2b31bd.png)
+
 This repository includes files with plain SQL that can be used to recreate a database:
 
 - Use [schema.sql](./schema.sql) to create all tables.
