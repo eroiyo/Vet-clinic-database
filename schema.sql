@@ -4,11 +4,13 @@
  CREATE TABLE owners(
  id INT GENERATED ALWAYS AS IDENTITY,
  age INT NOT NULL,
- full_name TEXT NOT NULL);
+ full_name TEXT NOT NULL,
+ PRIMARY KEY(id));
 
  CREATE TABLE species(
  id INT GENERATED ALWAYS AS IDENTITY,
- name TEXT NOT NULL);
+ name TEXT NOT NULL,
+ PRIMARY KEY(id));
 
  CREATE TABLE animals(
  id INT GENERATED ALWAYS AS IDENTITY,
@@ -16,7 +18,8 @@
  date_of_birth date NOT NULL,
  escape_attempts INT NOT NULL,
  neutered BOOL NOT NULL,
- weight_kg REAL NOT NULL
+ weight_kg REAL NOT NULL,
+ PRIMARY KEY(id)
 );
 
 ALTER TABLE animals ADD species_id INT;
