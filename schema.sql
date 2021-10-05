@@ -52,3 +52,16 @@ FOREIGN KEY (animals_id) REFERENCES animals (id),
 FOREIGN KEY (vets_id) REFERENCES vets (id),
 PRIMARY KEY (id)
 );
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+/* perfomance improvements */
+
+/* create index for the tables increase speed drastically*/
+
+CREATE INDEX vets_id_index ON visits (vets_id);
+
+CREATE INDEX animals_id_index ON visits (animals_id);
+
+
+
